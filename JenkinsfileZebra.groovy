@@ -14,7 +14,9 @@ pipeline {
 
         stage('clean') {
             steps {
+				sh "cd src/gateway/forecastweatherapi"
                 sh "mvn clean"
+				
             }
         }
 
@@ -27,7 +29,6 @@ pipeline {
                             ]){     
 
                                     sh """(
-									cd src/gateway/forecastweatherapi
                                      mvn install -Ptest -Dusername=riddhi_thacker@yahoo.com -Dpassword=Ridz94_@
                                     )"""
                                 }
