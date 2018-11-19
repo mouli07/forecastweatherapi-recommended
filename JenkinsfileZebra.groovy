@@ -27,6 +27,7 @@ pipeline {
                             ]){     
 
                                     sh """(
+									cd src/gateway/forecastweatherapi
                                      mvn install -Ptest -Dusername=riddhi_thacker@yahoo.com -Dpassword=Ridz94_@
                                     )"""
                                 }
