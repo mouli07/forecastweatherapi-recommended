@@ -14,8 +14,12 @@ pipeline {
 
         stage('clean') {
             steps {
-				sh "cd src/gateway/forecastweatherapi"
-                sh "mvn clean"
+				sh """(
+				cd src/gateway/forecastweatherapi
+				ls
+                mvn clean
+				
+				)"""
 				
             }
         }
