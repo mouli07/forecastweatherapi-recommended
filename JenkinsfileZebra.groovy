@@ -18,7 +18,6 @@ pipeline {
             }
         }
 
-       1
 
         stage('tag the build') {
             steps { 
