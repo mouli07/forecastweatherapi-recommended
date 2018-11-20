@@ -25,7 +25,7 @@ pipeline {
         }
 
 */
-        stage('tag the build') {
+        stage('Deploy to Test') {
             steps { 
      
 
@@ -37,7 +37,29 @@ pipeline {
                                 
 
             }
-        }        
+        }
+ stage('Mock url and Deploy to Prod') {
+            steps { 
+     
+
+                                    sh """(
+									 cd src/gateway/forecastweatherapi
+                                   
+									 sleep 20
+									 APP_STATUSCODE=\$(curl -X OPTIONS --silent --output /dev/stderr --write-out "%{http_code}" http://riddhithacker-eval-test.apigee.net/weatherapi/)
+									 if [ "\$APP_STATUSCODE" -eq 200 ]
+									 then
+									 mvn install -X -Pprod -Dusername=riddhi_thacker@yahoo.com -Dpassword=Ridz94_@
+									 else
+									 echo "API validation failed"
+									 exit 1
+									 fi
+                                    )"""
+                                
+                                
+
+            }
+        }               
         
     }
     
