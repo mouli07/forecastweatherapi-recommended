@@ -15,7 +15,7 @@ pipeline {
  /*       stage('clean') {
             steps {
 				sh """(
-				cd src/gateway/forecastweatherapi
+				cd src\gateway\HelloWorld
 				ls
                 mvn clean
 				
@@ -30,7 +30,7 @@ pipeline {
      
 
                                     sh """(
-									 cd src/gateway/forecastweatherapi
+									 cd src\gateway\HelloWorld
                                      mvn install -X -Ptest -Dusername=riddhi_thacker@yahoo.com -Dpassword=Ridz94_@
                                     )"""
                                 
